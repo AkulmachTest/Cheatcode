@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Examples</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>1. Class Robot Example</h1>
+    <pre id="code1">
+        <code>
+class Robot:
+    robot_count = 0
+
+    def __init__(self, name, model):
+        self.name = name
+        self.model = model
+        Robot.robot_count += 1
+
+    def greet(self):
+        print(f"Hello, I am {self.name}.")
+
+    def shutdown(self):
+        print(f"{self.name} is shutting down.")
+        Robot.robot_count -= 1
+
+class CleaningRobot(Robot):
+    def clean(self):
+        print(f"{self.name} is cleaning.")
+
+# Instantiate objects
+robot1 = Robot("R2-D2", "Astro Mech")
+robot2 = Robot("Wall-E", "Waste Allocation Load Lifter - Earth-Class")
+robot3 = CleaningRobot("Sweepy", "Floor Cleaning Robot")
+robot3.greet()
+robot3.clean()
+print(f"Current Population: {Robot.robot_count}")
+        </code>
+    </pre>
+    <button onclick="copyCode('code1')">Copy Code</button>
+
+    <h1>2. Class Dog Example</h1>
+    <pre id="code2">
+        <code>
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def bark(self):
+        print(f"{self.name} says: Woof!")
+
+    def get_info(self):
+        return f"Name: {self.name}, Breed: {self.breed}"
+
+# Instantiate object
+my_dog = Dog(name="Buddy", breed="Golden Retriever")
+print(my_dog.name)
+my_dog.bark()
+        </code>
+    </pre>
+    <button onclick="copyCode('code2')">Copy Code</button>
+
+    <h1>3. Class Person Example</h1>
+    <pre id="code3">
+        <code>
+class Person:
+    total_persons = 0
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        Person.total_persons += 1
+
+    def greet(self):
+        print("Hello, my name is", self.name)
+
+    def celebrate_birthday(self):
+        self.age += 1
+        print("Happy Birthday! I am now", self.age, "years old.")
+
+# Instantiate objects
+person1 = Person("Chandrasen", 21)
+person2 = Person("Vehaan", 18)
+        </code>
+    </pre>
+    <button onclick="copyCode('code3')">Copy Code</button>
+
+    <h1>4. Toga Example</h1>
+    <pre id="code4">
+        <code>
+import toga
+from toga.style import Pack
+from toga.style.pack import COLUMN, ROW
+
+def on_button_press(widget):
+    print("Button pressed!")
+
+def build(app):
+    main_box = toga.Box(style=Pack(direction=COLUMN))
+    button = toga.Button(
+        'Press me',
+        on_press=on_button_press,
+        style=Pack(padding=5)
+    )
+    main_box.add(button)
+    return main_box
+
+app = toga.App('My App', 'com.example.myapp', startup=build)
+app.main_loop()
+        </code>
+    </pre>
+    <button onclick="copyCode('code4')">Copy Code</button>
+
+    <p><strong>To add Toga to your Python project on macOS, you can use pip, the Python package manager. Open Terminal and run the following command:</strong></p>
+    <pre>
+        <code>
+pip install toga
+        </code>
+    </pre>
+
+    <script>
+        function copyCode(id) {
+            var code = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(code)
+                .then(() => alert('Code copied successfully!'))
+                .catch(err => console.error('Error copying code: ', err));
+        }
+    </script>
+</body>
+</html>
+```
+
+Now, the instructions for installing Toga on macOS using pip are added in bold after the Toga example.
